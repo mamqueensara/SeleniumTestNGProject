@@ -5,6 +5,7 @@
     <classes>
       <class name="com.practice.tests.LoginPageTest">
         <methods>
+          <include name="launchSite"/>
           <include name="tearDown"/>
           <include name="testValidLogin"/>
           <include name="setUp"/>

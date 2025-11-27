@@ -1,20 +1,30 @@
-package com.practice.tests;
+package com.practice.tests.ap;
 
+import java.time.Duration;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.practice.utils.BaseTest;
-import com.practice.utils.ForgotPasswordPage;
-import com.practice.utils.HomePage;
-import com.practice.utils.LoginPage;
+import com.practice.pages.ap.BaseTest;
+import com.practice.pages.ap.ForgotPasswordPage;
+import com.practice.pages.ap.HomePage;
+import com.practice.pages.ap.LoginPage;
 
 public class LoginPageTest extends BaseTest {
 
+	@BeforeMethod
+	public void launchSite() {
+		openURL("automationpractice.url");
+	}
+
 	@Test
-	public void testInvalidLogin() throws InterruptedException {
+	public void testInvalidLogin() {
 
-		HomePage homepg = new HomePage(driver);
-		homepg.signIN();
-
+		HomePage home = new HomePage(driver);
+		home.signIN();
 		LoginPage login = new LoginPage(driver);
 		login.enterEmail("invalid@email.com");
 		login.enterPassword("wrongpass");
@@ -27,24 +37,27 @@ public class LoginPageTest extends BaseTest {
 
 	@Test
 	public void testValidLogin() {
-		HomePage homepg = new HomePage(driver);
-		homepg.signIN();
+		HomePage home = new HomePage(driver);
+		home.signIN();
 
 		LoginPage login = new LoginPage(driver);
 		login.enterEmail("rose@testmail.com");
 		login.enterPassword("rosemary");
 		login.clickSignInBtn();
-		acceptAlertIfPresent(driver);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		WebElement accountInfo = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".info-account")));
+		Assert.assertTrue(accountInfo.isDisplayed());
 		String expectedTitle = "My account - My Shop";
 		Assert.assertEquals(driver.getTitle(), expectedTitle, "Login failed!");
-		System.out.println("Login  successful.Current page title is " + driver.getTitle());
+		System.out.println("Loginsuccessful.Current page title is " + driver.getTitle());
 
 	}
 
 	@Test
 	public void verifyForgotPasswordNavigation() {
-		HomePage homepg = new HomePage(driver);
-		homepg.signIN();
+		HomePage home = new HomePage(driver);
+		home.signIN();
 		LoginPage login = new LoginPage(driver);
 		login.forgotPassword();
 		String expectedTitle = "Forgot your password - My Shop";
@@ -52,11 +65,11 @@ public class LoginPageTest extends BaseTest {
 
 	}
 
-	@Test 
+	@Test
 	public void verifyForgotPasswordWithValidEmail() {
 
-		HomePage homepg = new HomePage(driver);
-		homepg.signIN();
+		HomePage home = new HomePage(driver);
+		home.signIN();
 		LoginPage login = new LoginPage(driver);
 		login.forgotPassword();
 		ForgotPasswordPage forgotpage = new ForgotPasswordPage(driver);
@@ -67,11 +80,11 @@ public class LoginPageTest extends BaseTest {
 				"Expected success message not displayed!");
 	}
 
-	@Test 
+	@Test
 	public void verifyForgotPasswordWithInValidEmail() {
 
-		HomePage homepg = new HomePage(driver);
-		homepg.signIN();
+		HomePage home = new HomePage(driver);
+		home.signIN();
 		LoginPage login = new LoginPage(driver);
 		login.forgotPassword();
 		ForgotPasswordPage forgotpage = new ForgotPasswordPage(driver);

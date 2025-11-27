@@ -1,4 +1,4 @@
-package com.practice.utils;
+package com.practice.pages.ap;
 
 import java.io.InputStream;
 import java.util.Properties;

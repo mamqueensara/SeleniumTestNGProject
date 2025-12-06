@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.practice.tests.dws.HomePageTest">
+      <class name="com.practice.tests.ap.HomePageTest">
         <methods>
-          <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="testHomePage"/>
+          <include name="setUp"/>
+          <include name="loadAutomationConfig"/>
           <include name="launchSite"/>
+          <include name="verifyHomePageTitle"/>
         </methods>
-      </class> <!-- com.practice.tests.dws.HomePageTest -->
+      </class> <!-- com.practice.tests.ap.HomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

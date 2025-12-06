@@ -14,15 +14,13 @@ public class CreateAccountStartPage {
 	public CreateAccountStartPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
-//Locators 
+    //Locators 
 	private By emailField = By.id("email_create");
 	private By submitCreateButton = By.id("SubmitCreate");
 	private By invalidEmailErrMessage = By.xpath("//div[@id='create_account_error']");
 	private By alreadyExistingErrMessage = By.xpath("//div[@id='create_account_error']//li");
 
 	// Invalid email address
-
 	// Actions
 	public void enterEmail(String email) {
 		driver.findElement(emailField).sendKeys(email);

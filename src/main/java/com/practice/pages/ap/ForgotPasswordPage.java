@@ -25,24 +25,20 @@ public class ForgotPasswordPage {
 	// Actions
 	public void enterEmail(String email) {
 		driver.findElement(emailField).sendKeys(email);
-
 	}
 
 	public void retrievepasswdButtonClick() {
 		driver.findElement(retrievePasswordButton).click();
-
 	}
 
 	public String getSuccessMessage() {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		WebElement success = wait.until(ExpectedConditions.visibilityOfElementLocated(successMessage));
 		return success.getText();
-
 	}
 
 	public String getFailMessage() {
 		return driver.findElement(failMessage).getText();
-
 	}
 
 }

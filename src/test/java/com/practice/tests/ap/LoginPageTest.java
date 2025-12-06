@@ -8,12 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.practice.pages.ap.BaseTest;
+import com.practice.base.AutomationBaseTest;
 import com.practice.pages.ap.ForgotPasswordPage;
 import com.practice.pages.ap.HomePage;
 import com.practice.pages.ap.LoginPage;
 
-public class LoginPageTest extends BaseTest {
+public class LoginPageTest extends AutomationBaseTest {
 
 	@BeforeMethod
 	public void launchSite() {
@@ -32,7 +32,6 @@ public class LoginPageTest extends BaseTest {
 		System.out.println(driver.getTitle()); // Login - My Shop
 		String errMessage = login.getErrorMessage();
 		Assert.assertTrue(errMessage.contains("Authentication failed"));
-
 	}
 
 	@Test

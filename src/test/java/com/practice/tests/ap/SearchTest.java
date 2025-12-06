@@ -3,10 +3,10 @@ package com.practice.tests.ap;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.practice.pages.ap.BaseTest;
+import com.practice.base.AutomationBaseTest;
 import com.practice.pages.ap.SearchPage;
 
-public class SearchTest extends BaseTest {
+public class SearchTest extends AutomationBaseTest {
 
 	@BeforeMethod
 	public void launchSite() {

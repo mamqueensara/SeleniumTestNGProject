@@ -7,22 +7,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.practice.pages.ap.BaseTest;
+import com.practice.base.AutomationBaseTest;
 import com.practice.pages.ap.CreateAccountStartPage;
 import com.practice.pages.ap.HomePage;
 import com.practice.pages.ap.RegistrationPage;
 
-public class RegistrationNegativeTest extends BaseTest {
-
+public class RegistrationNegativeTest extends AutomationBaseTest {
+	
 	@BeforeMethod
 	public void launchSite() {
+		
 		openURL("automationpractice.url");
 	}
-
-	@Test
+	
+	@Test(groups= "smoke")
 	public void testRequiredFieldEmpty() {
-		HomePage homepage = new HomePage(driver);
-		homepage.signIN();
+		HomePage home= new HomePage(driver);
+		home.signIN();
 		CreateAccountStartPage startpage = new CreateAccountStartPage(driver);
 		startpage.enterEmail("kannan@testmail.com");
 		startpage.clicksubmitCreateButton();
@@ -37,7 +38,6 @@ public class RegistrationNegativeTest extends BaseTest {
 		Assert.assertTrue(err.contains("passwd is required"));
 
 	}
-
 	@Test
 	public void testInvalidNames() {
 		HomePage homepage = new HomePage(driver);
@@ -54,7 +54,6 @@ public class RegistrationNegativeTest extends BaseTest {
 		String err = regPage.getErrMessage();
 		Assert.assertTrue(err.contains("firstname is invalid"));
 		Assert.assertTrue(err.contains("lastname is invalid"));
-
 	}
 
 	@Test

@@ -14,7 +14,6 @@ public class SearchPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
 	@FindBy(id = "search_query_top")
 	private WebElement searchBox;
 
@@ -29,17 +28,14 @@ public class SearchPage {
 		searchBox.clear();
 		searchBox.sendKeys(searchText);
 	}
-
 	public void clickSearchButton() {
 		searchButton.click();
-
 	}
 
 	public int getItemCount() {
 		return itemList.size();
 
 	}
-
 	public Boolean isItemDisplayed(String productName) {
 		return itemList.stream().anyMatch(pl -> pl.getText().toLowerCase().contains(productName.toLowerCase()));
 

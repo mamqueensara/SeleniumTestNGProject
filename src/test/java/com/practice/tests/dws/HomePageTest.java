@@ -2,11 +2,10 @@ package com.practice.tests.dws;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import com.practice.pages.ap.BaseTest;
+import com.practice.base.DemoWebshopBaseTest;
 import com.practice.pages.dws.*;
 
-public class HomePageTest extends BaseTest {
+public class HomePageTest extends DemoWebshopBaseTest {
 
 	@BeforeMethod
 	public void launchSite() {

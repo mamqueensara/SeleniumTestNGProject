@@ -3,11 +3,11 @@ package com.practice.tests.ap;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.practice.pages.ap.BaseTest;
+import com.practice.base.AutomationBaseTest;
 import com.practice.pages.ap.CreateAccountStartPage;
 import com.practice.pages.ap.HomePage;
 
-public class AccountCreationTest extends BaseTest {
+public class AccountCreationTest extends AutomationBaseTest {
 
 	@BeforeMethod
 	public void launchSite() {

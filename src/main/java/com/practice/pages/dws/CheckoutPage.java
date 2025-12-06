@@ -1,68 +1,96 @@
 package com.practice.pages.dws;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import java.time.Duration;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.*;
 
 public class CheckoutPage {
 
-	WebDriver driver;
+     WebDriver driver;
+    private WebDriverWait wait;
+    private JavascriptExecutor js;
 
-	public CheckoutPage(WebDriver driver) {
+    public CheckoutPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        js = (JavascriptExecutor) driver;
+    }
 
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
-	}
+    // ---------- LOCATORS ----------
+    @FindBy(css = "input[onclick='Billing.save()'], button[onclick='Billing.save()']")
+    private WebElement billingContinueBtn;
 
-	@FindBy(xpath = "//input[@onclick='Billing.save()']")
-	private WebElement billingContinueBtn;
+    @FindBy(css = "input[onclick='Shipping.save()'], button[onclick='Shipping.save()']")
+    private WebElement shippingContinueBtn;
 
-	@FindBy(xpath = "//input[@onclick='Shipping.save()']")
-	private WebElement shippingAddrContinueBtn;
+    @FindBy(css = "input[onclick='ShippingMethod.save()'], button[onclick='ShippingMethod.save()']")
+    private WebElement shippingMethodContinueBtn;
 
-	@FindBy(xpath = "//input[@class='button-1 shipping-method-next-step-button']")
-	private WebElement shippingMethodContinueBtn;
+    @FindBy(css = "input[onclick='PaymentMethod.save()'], button[onclick='PaymentMethod.save()']")
+    private WebElement paymentMethodContinueBtn;
 
-	@FindBy(xpath = "//input[@class='button-1 payment-method-next-step-button']")
-	private WebElement paymentMethodContinueBtn;
+    @FindBy(css = "input[onclick='PaymentInfo.save()'], button[onclick='PaymentInfo.save()']")
+    private WebElement paymentInfoContinueBtn;
 
-	@FindBy(xpath = "//input[@class='button-1 payment-info-next-step-button']")
-	private WebElement paymentInfoContinueBtn;
+    @FindBy(css = "input[onclick='ConfirmOrder.save()'], button[onclick='ConfirmOrder.save()']")
+    private WebElement confirmOrderBtn;
 
-	@FindBy(xpath = "//input[@value='Confirm']")
-	private WebElement confirmOrderButton;
+    @FindBy(css = "div.title strong")
+    private WebElement orderSuccessMessage;
 
-	@FindBy(css = "div[class='title'] strong")
-	private WebElement orderSuccessMessage;
 
-	public void completeBillingAddress() {
-		billingContinueBtn.click();
-	}
+    // ---------- REUSABLE CLICK METHOD ----------
+    private void clickUsingJS(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+        js.executeScript("arguments[0].click();", element);
+    }
 
-	public void completeShippingAddress() {
-		shippingAddrContinueBtn.click();
-	}
 
-	public void completeShippingMethod() {
-		shippingMethodContinueBtn.click();
-	}
+    // ---------- Action Methods ----------
 
-	public void completePaymentMethod() {
-		paymentMethodContinueBtn.click();
-	}
+    public void completeBillingAddress() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("billing-buttons-container")));
+        clickUsingJS(billingContinueBtn);
+    }
 
-	public void completePaymentInfoMethod() {
-		paymentInfoContinueBtn.click();
-	}
+    public void completeShippingAddress() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("shipping-buttons-container")));
+        clickUsingJS(shippingContinueBtn);
+    }
 
-	public void confirmOrderMethod() {
-		confirmOrderButton.click();
-	}
+    public void completeShippingMethod() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("shipping-method-buttons-container")));
+        clickUsingJS(shippingMethodContinueBtn);
+    }
 
-	public String getOrderSuccess() {
-		return orderSuccessMessage.getText();
+    public void completePaymentMethod() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("payment-method-buttons-container")));
+        clickUsingJS(paymentMethodContinueBtn);
+    }
 
-	}
+    public void completePaymentInfoMethod() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("payment-info-buttons-container")));
+        clickUsingJS(paymentInfoContinueBtn);
+    }
 
+    public void confirmOrderMethod() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.id("confirm-order-buttons-container")));
+        clickUsingJS(confirmOrderBtn);
+    }
+
+    public String getOrderSuccess() {
+        wait.until(ExpectedConditions.visibilityOf(orderSuccessMessage));
+        return orderSuccessMessage.getText().trim();
+    }
 }

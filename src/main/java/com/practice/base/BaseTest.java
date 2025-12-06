@@ -1,13 +1,10 @@
-package com.practice.pages.ap;
+package com.practice.base;
 
-import java.time.Duration;
-
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import com.practice.utilities.ConfigReader;
+import com.practice.utilities.DriverManager;
 
 public class BaseTest {
 
@@ -16,7 +13,6 @@ public class BaseTest {
 	@BeforeMethod
 	public void setUp() {
 		driver = DriverManager.getDriver();
-
 	}
 
 	public void openURL(String urlKey) {
@@ -26,16 +22,6 @@ public class BaseTest {
 	@AfterMethod
 	public void tearDown() {
 		DriverManager.quitDriver();
-	}
-
-	public void acceptAlertIfPresent() {
-		try {
-			new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.alertIsPresent());
-			driver.switchTo().alert().accept();
-
-		} catch (NoAlertPresentException e) {
-
-		}
 	}
 
 }

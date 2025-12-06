@@ -2,12 +2,12 @@ package com.practice.tests.ap;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import com.practice.pages.ap.BaseTest;
+import com.practice.base.AutomationBaseTest;
 import com.practice.pages.ap.CreateAccountStartPage;
 import com.practice.pages.ap.HomePage;
 import com.practice.pages.ap.RegistrationPage;
 
-public class RegistrationPageTest extends BaseTest {
+public class RegistrationPageTest extends AutomationBaseTest {
 
 	@BeforeMethod
 	public void launchSite() {

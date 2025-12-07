@@ -52,6 +52,7 @@ Reporting	                              TestNG default reports
 Others	                                Listeners, Screenshot utility
 
 --------------- Project Folder Structure--------------------
+```
 src
  ├── main
  │    ├── java
@@ -68,6 +69,8 @@ screenshots
 pom.xml
 testng.xml
 README.md
+```
+
 
 -------------How to Run Tests-------------------
 Option 1 — Run from TestNG XML

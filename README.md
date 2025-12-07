@@ -1,4 +1,4 @@
-#  Selenium Automation Framework (AutomationPractice + DemoWebShop)
+#  E-Commerce Selenium Automation Framework (AutomationPractice + DemoWebShop)
 
 ##  Overview  
 
@@ -8,7 +8,7 @@ I automated key e-commerce functionalities using two public test websites:
 - **AutomationPractice**
 - **DemoWebShop**
 
-The goal of this project is to build a **real-world Selenium Test Automation framework** using industry-standard practices such as **Page Object Model (POM), TestNG, Maven, WebDriver utilities, Listeners, and Screenshots**.
+The goal of this project is to build a **real-world E-Commerce Selenium Test Automation framework** using industry-standard practices such as **Page Object Model (POM), TestNG, Maven, WebDriver utilities, Listeners, and Screenshots**.
 
 ---
 

@@ -1,6 +1,6 @@
-# 🚀 Selenium Automation Framework (AutomationPractice + DemoWebShop)
+#  Selenium Automation Framework (AutomationPractice + DemoWebShop)
 
-## 📌 Overview  
+##  Overview  
 
 This project is part of my Selenium automation learning journey.  
 I automated key e-commerce functionalities using two public test websites:  
@@ -12,14 +12,14 @@ The goal of this project is to build a **real-world Selenium Test Automation fra
 
 ---
 
-## 🔥 Features Automated
+##  Features Automated
 
-### 🟦 AutomationPractice
+###  AutomationPractice
 - Register
 - Login
 - Search
 
-### 🟦 DemoWebShop
+###  DemoWebShop
 - Login
 - Add to Cart
 - Checkout
@@ -28,7 +28,7 @@ The goal of this project is to build a **real-world Selenium Test Automation fra
 
 ---
 
-## 🧱 Framework Design
+##  Framework Design
 
 This project follows a clean Page Object Model (POM) structure with separation of concerns:
 
@@ -43,7 +43,7 @@ This project follows a clean Page Object Model (POM) structure with separation o
 
 ---
 
-## 🛠 Tech Stack  
+## Tech Stack  
 
 | Category | Tools |
 |---|---|
@@ -58,7 +58,7 @@ This project follows a clean Page Object Model (POM) structure with separation o
 
 ---
 
-## 📁 Project Folder Structure  
+##  Project Folder Structure  
 
 ```
 src
@@ -81,7 +81,7 @@ README.md
 
 ---
 
-## ▶ How to Run Tests  
+##  How to Run Tests  
 
 ### Option 1 — Run using TestNG XML  
 Right-click → **Run testng.xml**
@@ -91,7 +91,7 @@ Right-click on class → **Run TestNG**
 
 ---
 
-## 📸 Screenshot on Failure  
+##  Screenshot on Failure  
 
 - Automatically captured for failed tests  
 - Stored inside `/screenshots` folder  
@@ -99,7 +99,7 @@ Right-click on class → **Run TestNG**
 
 ---
 
-## 🚧 Future Enhancements  
+##  Future Enhancements  
 
 - Extent Reports
 - Data-driven tests (Excel / JSON)
@@ -111,7 +111,7 @@ Right-click on class → **Run TestNG**
 
 ---
 
-## 🎯 Learning Outcome  
+## Learning Outcome  
 
 Through this project, I gained practical hands-on experience with:
 
@@ -129,7 +129,7 @@ Through this project, I gained practical hands-on experience with:
 
 ---
 
-## 🌐 Websites Used  
+##  Websites Used  
 
 🔗 AutomationPractice  
 http://automationpractice.pl/
@@ -139,7 +139,7 @@ https://demowebshop.tricentis.com/
 
 ---
 
-## 👩‍💻 Author  
+## Author  
 
 **Mamqueen Mamachan**  
 Selenium Automation Learner | Manual + Automation Tester  

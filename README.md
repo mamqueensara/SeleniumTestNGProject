@@ -1,5 +1,6 @@
 
 Selenium Automation Framework (AutomationPractice + DemoWebShop)
+
 ---- Overview--------
 
 This project is part of my Selenium automation learning journey.
@@ -23,7 +24,8 @@ Add to Cart
 Checkout
 
 Note: This is an ongoing learning project, and I plan to continue adding more scenarios.
-Framework Design
+
+---------------Framework Design--------------------------------
 
 This project follows a Page Object Model (POM) structure with a clean separation of concerns.
 
